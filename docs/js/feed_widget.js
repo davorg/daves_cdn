@@ -26,6 +26,10 @@ function do_one_feed(feed, element) {
                  '<ul class="feed_list">' + feed_html + '</ul>';
 
       $('#' + element).append(html);
+    },
+
+    error: function(jqXHR,error, errorThrown) {
+      console.log(jqXHR.responseJSON.Message);
     }
   });
 }
