@@ -38,6 +38,10 @@ function do_one_feed(feed, element) {
 
       $('#' + element).append('<h2 class="rss_title">' + feed.desc + '</h2>');
       $('#' + element).append('<ul class="rss_feed">' + feed_html + '</ul>');
+    },
+
+    error: function(jqXHR,error, errorThrown) {
+      console.log(jqXHR.responseJSON.Message);
     }
   });
 }
