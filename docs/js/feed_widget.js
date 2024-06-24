@@ -24,9 +24,12 @@ async function do_one_feed(feed) {
     const data = parser.parseFromString(textData, "text/xml");
     let feed_html = '';
 
-    data.querySelectorAll("entry, item").forEach(item => {
-      feed_html += get_item(item);
-    });
+    const items = data.querySelectorAll("entry, item");
+    const count = feed.count || 10; // Default to 10 if feed.count is not set
+
+    for (let i = 0; i < Math.min(items.length, count); i++) {
+      feed_html += get_item(items[i]);
+    }
 
     return `<h2 class="feed_title">${feed.desc}</h2><ul class="feed_list">${feed_html}</ul>`;
   } catch (error) {
