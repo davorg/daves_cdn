@@ -1,50 +1,50 @@
-function make_feed_widget (feeds, element) {
-
-  feeds.forEach(function(item, index) {
-    do_one_feed(item, element);
-  });
+async function make_feed_widget(feeds, element) {
+  let allFeedsHtml = '';
+  for (const feed of feeds) {
+    allFeedsHtml += await do_one_feed(feed);
+  }
+  const container = document.querySelector(`#${element}`);
+  if (container) {
+    container.insertAdjacentHTML('beforeend', allFeedsHtml);
+  }
 }
 
-function do_one_feed(feed, element) {
-  $.ajax(feed.url, {
-    accepts: {
-      xml: "application/" + feed.type + "xml"
-    },
-
-    dataType: "xml",
-
-    success: function(data) {
-      var feed_html = '';
-
-      $(data)
-        .find("entry,item")
-        .each(function() {
-          feed_html = feed_html + get_item($(this));
-        });
-
-      var html = '<h2 class="feed_title">' + feed.desc + '</h2>' +
-                 '<ul class="feed_list">' + feed_html + '</ul>';
-
-      $('#' + element).append(html);
-    },
-
-    error: function(jqXHR,error, errorThrown) {
-      console.log(jqXHR.responseJSON.Message);
+async function do_one_feed(feed) {
+  try {
+    const response = await fetch(feed.url, {
+      headers: {
+        Accept: `application/${feed.type}xml`,
+      },
+    });
+    if (!response.ok) {
+      throw new Error(`Network response was not ok for ${feed.url}`);
     }
-  });
+    const textData = await response.text();
+    const parser = new DOMParser();
+    const data = parser.parseFromString(textData, "text/xml");
+    let feed_html = '';
+
+    data.querySelectorAll("entry, item").forEach(item => {
+      feed_html += get_item(item);
+    });
+
+    return `<h2 class="feed_title">${feed.desc}</h2><ul class="feed_list">${feed_html}</ul>`;
+  } catch (error) {
+    console.error(`Error fetching feed: ${error}`);
+    return ''; // Return an empty string to avoid breaking the layout
+  }
 }
 
 function get_item(elem) {
-  if (elem.find("link").attr("href")) {
-    link_href = elem.find("link").attr("href");
-  } else {
-    link_href = elem.find("link").text();
-  }
+  const linkElement = elem.querySelector("link");
+  const link_href = linkElement ? (linkElement.getAttribute("href") || linkElement.textContent) : '#';
+  const titleElement = elem.querySelector("title");
+  const titleText = titleElement ? titleElement.textContent : 'No title';
 
   return `
     <li class="feed_item">
       <a class="feed_item_link" href="${link_href}" target="_blank" rel="noopener">
-        ${elem.find("title").text()}
+        ${titleText}
       </a>
     </li>
   `;
