@@ -1,0 +1,26 @@
+name: Deploy to S3
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]  # or whatever branch you want to deploy
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Sync to S3
+      uses: jakejarvis/s3-sync-action@v0.5.1
+      with:
+        args: --delete
+      env:
+        AWS_S3_BUCKET: cdn.davecross.co.uk
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_REGION: eu-west-1
+        SOURCE_DIR: 'docs'  # or '.' if you're syncing the root
+
