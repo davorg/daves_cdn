@@ -1,0 +1,14 @@
+#!/usr/bin/perl
+
+use v5.40;
+
+use JSON;
+use Path::Tiny;
+use LWP::Simple;
+use File::Basename;
+
+my $json = path('books.json')->slurp;
+
+my $books = JSON->new->decode($json);
+
+mirror($_->{image_url}, basename $_->{image_url}) for $books->@*;
