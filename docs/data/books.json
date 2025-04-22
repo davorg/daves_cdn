@@ -7,7 +7,7 @@
     "publication_date": "June 2024",
     "description": "A children's rhyming ABC where forest animals introduce digital terminology.",
     "asin": "B0C4Q9J5F7",
-    "image_url": "https://davecross.co.uk/img/abc.jpg",
+    "image_url": "https://cdn.davecross.co.uk/imgs/abc.jpg",
     "tags": [ "children", "tech" ]
   },
   {
@@ -19,7 +19,7 @@
     "description": "A comprehensive guide to setting up and customizing GitHub Actions workflows.",
     "asin": "B0B1L5Q9F7",
     "leanpub_slug": "github-actions-essentials",
-    "image_url": "https://davecross.co.uk/img/gae.jpg",
+    "image_url": "https://cdn.davecross.co.uk/imgs/gae.jpg",
     "tags": [ "tech", "github" ]
   },
   {
@@ -30,7 +30,7 @@
     "publication_date": "March 2022",
     "description": "A children's book about George's adventures in a malfunctioning smart home.",
     "asin": "B09V3Q9F7",
-    "image_url": "https://davecross.co.uk/img/gsh.jpg",
+    "image_url": "https://cdn.davecross.co.uk/imgs/gsh.jpg",
     "tags": [ "children", "tech" ]
   },
   {
@@ -42,7 +42,7 @@
     "description": "A collection of favorite posts from the Perl Hacks blog.",
     "asin": "B0863Q9F7",
     "leanpub_slug": "the-best-of-perl-hacks",
-    "image_url": "https://davecross.co.uk/img/bph.jpg",
+    "image_url": "https://cdn.davecross.co.uk/imgs/bph.jpg",
     "tags": [ "tech", "perl" ]
   },
   {
@@ -54,7 +54,7 @@
     "description": "A basic introduction to programming in Perl, subtitled 'Your First Two Hours With Perl'.",
     "asin": "B0773Q9F7",
     "leanpub_slug": "perl-taster",
-    "image_url": "https://davecross.co.uk/img/pt.jpg",
+    "image_url": "https://cdn.davecross.co.uk/imgs/pt.jpg",
     "tags": [ "tech", "perl" ]
   },
   {
@@ -65,7 +65,7 @@
     "publication_date": "November 2015",
     "description": "A collection of thoughts and reviews from a music club discussing classic albums.",
     "asin": "B0183Q9F7",
-    "image_url": "https://davecross.co.uk/img/eca.jpg",
+    "image_url": "https://cdn.davecross.co.uk/imgs/eca.jpg",
     "tags": [ "music" ]
   },
   {
@@ -76,7 +76,7 @@
     "publication_date": "December 2003",
     "description": "A comprehensive guide to Perl's de facto standard templating engine.",
     "asin": "B0033Q9F7",
-    "image_url": "https://davecross.co.uk/img/ptt.jpg",
+    "image_url": "https://cdn.davecross.co.uk/imgs/ptt.jpg",
     "tags": [ "tech", "perl" ]
   },
   {
@@ -87,7 +87,7 @@
     "publication_date": "January 2001",
     "description": "A book about data manipulation with Perl, possibly the first technical book with 'munging' in the title.",
     "asin": "B0013Q9F7",
-    "image_url": "https://davecross.co.uk/img/dmp.jpg",
+    "image_url": "https://cdn.davecross.co.uk/imgs/dmp.jpg",
     "tags": [ "tech", "perl" ]
   }
 ]
