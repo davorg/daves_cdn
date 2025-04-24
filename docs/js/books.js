@@ -33,7 +33,7 @@
  */
 document.addEventListener("DOMContentLoaded", () => {
   // Get the current script tag
-  const scriptTag = document.currentScript;
+  let scriptTag = document.currentScript;
   if (!scriptTag) {
     // Fallback: Find the script tag by its src attribute
     const scripts = document.querySelectorAll('script[src*="books.js"]');
