@@ -7,6 +7,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const includeTags = scriptTag?.getAttribute("data-tags-include")?.split(",").map(tag => tag.trim()) || [];
   const excludeTags = scriptTag?.getAttribute("data-tags-exclude")?.split(",").map(tag => tag.trim()) || [];
 
+  // Get the target element ID or default to "book-list"
+  const targetId = scriptTag?.getAttribute("data-target-id") || "book-list";
+
   // Fetch the JSON file
   fetch(url)
     .then(response => {
@@ -33,8 +36,13 @@ document.addEventListener("DOMContentLoaded", () => {
         </a>
       `).join("");
 
-      // Insert HTML into the page
-      document.getElementById("book-list").innerHTML = `<p>${html}</p>`;
+      // Insert HTML into the target element
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.innerHTML = `<p>${html}</p>`;
+      } else {
+        console.error(`Target element with ID "${targetId}" not found.`);
+      }
     })
     .catch(error => {
       console.error("Error fetching the JSON file:", error);
