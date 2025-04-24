@@ -52,6 +52,9 @@ document.addEventListener("DOMContentLoaded", () => {
       return response.json();
     })
     .then(books => {
+      console.log("Books:", books);
+      console.log("Include Tags:", includeTags);
+      console.log("Exclude Tags:", excludeTags);
       // Filter books based on the include and exclude tags
       const filteredBooks = books.filter(book =>
         (includeTags.length === 0 || includeTags.every(tag => book.tags.includes(tag))) &&
