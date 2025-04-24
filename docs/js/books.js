@@ -1,3 +1,36 @@
+/**
+ * Books Widget Script
+ * --------------------
+ * This script dynamically fetches and displays a list of books based on configurable attributes.
+ *
+ * Usage:
+ * 1. Include this script in your HTML file:
+ *    <script src="path/to/books.js" 
+ *            data-url="https://example.com/books.json" 
+ *            data-tags-include="tech,fiction" 
+ *            data-tags-exclude="children" 
+ *            data-target-id="custom-book-list"></script>
+ *
+ * 2. Attributes:
+ *    - data-url (optional): URL of the JSON file containing book data. Defaults to:
+ *      "https://cdn.davecross.co.uk/data/books.json".
+ *    - data-tags-include (optional): Comma-separated list of tags to include. Defaults to no filtering.
+ *    - data-tags-exclude (optional): Comma-separated list of tags to exclude. Defaults to no filtering.
+ *    - data-target-id (optional): ID of the target element where the book list will be inserted.
+ *      Defaults to "book-list".
+ *
+ * 3. Example HTML:
+ *    <div id="custom-book-list"></div>
+ *    <script src="path/to/books.js" 
+ *            data-url="https://example.com/books.json" 
+ *            data-tags-include="tech" 
+ *            data-tags-exclude="children" 
+ *            data-target-id="custom-book-list"></script>
+ *
+ * Notes:
+ * - If the target element is not found, an error will be logged to the console.
+ * - If the JSON file cannot be fetched, an error will be logged to the console.
+ */
 document.addEventListener("DOMContentLoaded", () => {
   // Get the current script tag
   const scriptTag = document.currentScript;
