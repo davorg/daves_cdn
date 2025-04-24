@@ -36,9 +36,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const scriptTag = document.currentScript;
   const url = scriptTag?.getAttribute("data-url") || "https://cdn.davecross.co.uk/data/books.json";
 
-  console.log(scriptTag);
-  console.log(scriptTag.getAttribute("data-tags-include"));
-  console.log(scriptTag.getAttribute("data-tags-exclude"));
+  console.log("ScriptTag:", scriptTag);
+  console.log("Include:", scriptTag.getAttribute("data-tags-include"));
+  console.log("Exclude:", scriptTag.getAttribute("data-tags-exclude"));
 
   // Get include and exclude tags from the attributes, or default to no filtering
   const includeTags = scriptTag?.getAttribute("data-tags-include")?.split(",").map(tag => tag.trim()) || [];
