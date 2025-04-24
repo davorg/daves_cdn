@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const url = "https://cdn.davecross.co.uk/data/books.json";
+  // Get the current script tag
+  const scriptTag = document.currentScript;
+  const url = scriptTag?.getAttribute("data-url") || "https://cdn.davecross.co.uk/data/books.json";
 
   // Fetch the JSON file
   fetch(url)
