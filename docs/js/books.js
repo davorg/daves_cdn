@@ -3,6 +3,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const scriptTag = document.currentScript;
   const url = scriptTag?.getAttribute("data-url") || "https://cdn.davecross.co.uk/data/books.json";
 
+  // Get include and exclude tags from the attributes, or default to no filtering
+  const includeTags = scriptTag?.getAttribute("data-tags-include")?.split(",").map(tag => tag.trim()) || [];
+  const excludeTags = scriptTag?.getAttribute("data-tags-exclude")?.split(",").map(tag => tag.trim()) || [];
+
   // Fetch the JSON file
   fetch(url)
     .then(response => {
@@ -12,9 +16,10 @@ document.addEventListener("DOMContentLoaded", () => {
       return response.json();
     })
     .then(books => {
-      // Filter for non-children tech books
+      // Filter books based on the include and exclude tags
       const filteredBooks = books.filter(book =>
-        book.tags.includes("tech") && !book.tags.includes("children")
+        (includeTags.length === 0 || includeTags.every(tag => book.tags.includes(tag))) &&
+        (excludeTags.length === 0 || excludeTags.every(tag => !book.tags.includes(tag)))
       );
 
       // Generate HTML
