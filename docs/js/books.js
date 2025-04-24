@@ -34,6 +34,11 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Get the current script tag
   const scriptTag = document.currentScript;
+  if (!scriptTag) {
+    // Fallback: Find the script tag by its src attribute
+    const scripts = document.querySelectorAll('script[src*="books.js"]');
+    scriptTag = scripts[scripts.length - 1]; // Assume the last matching script is the current one
+  }
   const url = scriptTag?.getAttribute("data-url") || "https://cdn.davecross.co.uk/data/books.json";
 
   console.log("ScriptTag:", scriptTag);
