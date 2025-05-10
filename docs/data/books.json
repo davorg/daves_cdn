@@ -1,5 +1,16 @@
 [
   {
+    "id": "wsg",
+    "title": "What to Ask Your Website Company",
+    "author": "Dave Cross",
+    "publisher": "Clapham Technical Press",
+    "publication_date": "May 2025",
+    "description": "Getting a website that actually works for your business",
+    "asin": "B0F84G4X6X",
+    "image_url": "https://cdn.davecross.co.uk/imgs/wsg.jpg",
+    "tags": [ "tech", "website", "small-business" ]
+  },
+  {
     "id": "abcs",
     "title": "Digital Woodland ABCs",
     "author": "Dave Cross",
