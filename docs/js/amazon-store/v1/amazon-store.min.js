@@ -1,4 +1,4 @@
-/*! Amazon Store Router v1.0.0 — MIT */
+/*! Amazon Store Router v1.1.0 — MIT */
 (function (global, factory) {
   if (typeof module === "object" && typeof module.exports === "object") {
     module.exports = factory();
