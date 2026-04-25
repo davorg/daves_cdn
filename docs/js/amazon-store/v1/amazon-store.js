@@ -1,4 +1,4 @@
-/*! Amazon Store Router v1.2.1 — MIT */
+/*! Amazon Store Router v1.2.2 — MIT */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
   typeof define === 'function' && define.amd ? define(['exports'], factory) :
