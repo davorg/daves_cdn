@@ -1,4 +1,4 @@
-/*! Amazon Store Router v1.2.1 — MIT */
+/*! Amazon Store Router v1.2.2 — MIT */
 const STORES = {
   AU:{name:"Australia",domain:"amazon.com.au"},
   BR:{name:"Brazil",domain:"amazon.com.br"},
